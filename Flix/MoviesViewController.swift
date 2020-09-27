@@ -16,16 +16,22 @@ class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        the cell
 
-        let cell = UITableViewCell()
+        
+//      stop using standard cell and change to reusable cell --> while not on screen, they dont waste memory
+        // type cast it as MovieCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell
         //        get the movie titles
         let movie = movies[indexPath.row]
-        //        This is from the API
+        //        This is from the API, this is how the column is called
         let title = movie["title"] as! String
-        cell.textLabel!.text = "\(title)"
-        
+        //this is not applicable anymore since the personalized cell has a label called TitleLabel
+        //cell.textLabel!.text = "\(title)"
+        cell.TitleLabel!.text = title
+        // Same as with the title, you first declare a string variable that gets the overview column from the api
+        //then assign its casted string value to the Synopsis Label we made in the moviecell class file
+        let synopsis = movie["overview"] as! String
+        cell.SynopsisLabel!.text = synopsis
         return cell
         
     }
