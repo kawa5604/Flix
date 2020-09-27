@@ -9,14 +9,14 @@ import UIKit
 
 class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        <#code#>
+//
 //        movies.count
         
         return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
+//
 //        the cell
 
         let cell = UITableViewCell()

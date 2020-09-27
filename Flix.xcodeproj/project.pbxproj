@@ -15,6 +15,7 @@
 		522A8211251DDE5E0087BEE4 /* FlixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A8210251DDE5E0087BEE4 /* FlixTests.swift */; };
 		522A821C251DDE5E0087BEE4 /* FlixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A821B251DDE5E0087BEE4 /* FlixUITests.swift */; };
 		522A8230251DE1360087BEE4 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A822F251DE1360087BEE4 /* MoviesViewController.swift */; };
+		52A20CA12520846800ABCA0A /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A20CA02520846800ABCA0A /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		522A821B251DDE5E0087BEE4 /* FlixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlixUITests.swift; sourceTree = "<group>"; };
 		522A821D251DDE5E0087BEE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		522A822F251DE1360087BEE4 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
+		52A20CA02520846800ABCA0A /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				522A81FB251DDE5B0087BEE4 /* SceneDelegate.swift */,
 				522A822F251DE1360087BEE4 /* MoviesViewController.swift */,
 				522A81FF251DDE5B0087BEE4 /* Main.storyboard */,
+				52A20CA02520846800ABCA0A /* MovieCell.swift */,
 				522A8202251DDE5D0087BEE4 /* Assets.xcassets */,
 				522A8204251DDE5D0087BEE4 /* LaunchScreen.storyboard */,
 				522A8207251DDE5D0087BEE4 /* Info.plist */,
@@ -260,6 +263,7 @@
 			files = (
 				522A81FA251DDE5B0087BEE4 /* AppDelegate.swift in Sources */,
 				522A81FC251DDE5B0087BEE4 /* SceneDelegate.swift in Sources */,
+				52A20CA12520846800ABCA0A /* MovieCell.swift in Sources */,
 				522A8230251DE1360087BEE4 /* MoviesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
