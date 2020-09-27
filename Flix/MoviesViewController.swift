@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import AlamofireImage
+
 
 class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,6 +34,20 @@ class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewD
         //then assign its casted string value to the Synopsis Label we made in the moviecell class file
         let synopsis = movie["overview"] as! String
         cell.SynopsisLabel!.text = synopsis
+        
+        //Adding the poster image
+        //According to the API configuration , you need baseURL, fileSize, and filePath
+        let baseURL: String = "https://image.tmdb.org/t/p/"
+        let fileSize: String = "w185"
+        let posterImagePath: String = movie["poster_path"] as! String
+        
+        
+        //the URL datatype is like a string but it validates the http, semicolons, etc.
+        let posterURL = URL(string: baseURL + fileSize + posterImagePath)
+        // after installing alamofireImage library
+        
+        cell.PosterLabel.af_setImage(withURL: posterURL!)
+        
         return cell
         
     }
