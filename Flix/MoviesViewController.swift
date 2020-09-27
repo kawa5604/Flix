@@ -62,7 +62,9 @@ class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewD
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        //testing dark mode
+        overrideUserInterfaceStyle = .dark
+        //
         tableView.dataSource = self
         tableView.delegate = self
         
