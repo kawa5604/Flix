@@ -114,6 +114,13 @@
                         <color key="backgroundColor" systemColor="labelColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="ywE-Le-E7E"/>
+                    <connections>
+                        <outlet property="backDropView" destination="doU-cL-2Ah" id="AJJ-eH-Lx8"/>
+                        <outlet property="gradientView" destination="1O8-ec-Kur" id="JJM-pK-WIB"/>
+                        <outlet property="posterView" destination="H2Z-T7-BxG" id="T2R-kJ-2qU"/>
+                        <outlet property="synopsisLabel" destination="CY3-Mk-36e" id="U97-7M-r3v"/>
+                        <outlet property="titleLabel" destination="9xW-gX-58l" id="KIh-OQ-ZFS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eca-US-R1i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

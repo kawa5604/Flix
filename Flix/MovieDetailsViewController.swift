@@ -12,6 +12,20 @@ class MovieDetailsViewController: UIViewController {
     // The movie dictionary with string key
     var movie: [String:Any]!
     
+    //outlets for image views and label views
+    
+    @IBOutlet weak var backDropView: UIImageView!
+    
+    @IBOutlet weak var gradientView: UIImageView!
+    
+    @IBOutlet weak var posterView: UIImageView!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var synopsisLabel: UILabel!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
