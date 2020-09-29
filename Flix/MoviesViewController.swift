@@ -38,6 +38,7 @@ class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewD
         //Adding the poster image
         //According to the API configuration , you need baseURL, fileSize, and filePath
         let baseURL: String = "https://image.tmdb.org/t/p/"
+        //this size is specified on the API, they have different sizes available 
         let fileSize: String = "w185"
         let posterImagePath: String = movie["poster_path"] as! String
         
@@ -68,7 +69,7 @@ class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewD
         tableView.dataSource = self
         tableView.delegate = self
         
-        print("-------inside of movies view controller-------")
+//        print("-------inside of movies view controller-------")
         
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -82,7 +83,7 @@ class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewD
             
             self.movies = dataDictionary["results"] as! [[String:Any]]
             self.tableView.reloadData()
-            print(dataDictionary)
+//            print(dataDictionary)
               // TODO: Get the array of movies
               // TODO: Store the movies in a property to use elsewhere
               // TODO: Reload your table view data
@@ -93,14 +94,21 @@ class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewD
     }
     
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        print("------Loading Movie Details------")
+        //Find the selected movie
+        // Since the sender is of type Any? you need to cast it to a UI table view cell
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)!
+        let movie = movies[indexPath.row]
+        
+        
     }
-    */
+
 
 }

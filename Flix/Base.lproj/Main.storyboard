@@ -57,6 +57,7 @@
                                             <outlet property="PosterLabel" destination="8PM-3Z-6rP" id="FsJ-Qu-fZM"/>
                                             <outlet property="SynopsisLabel" destination="Q9e-6f-ZDs" id="gC6-5B-Nuw"/>
                                             <outlet property="TitleLabel" destination="ewG-Qc-Jzq" id="xzt-Vc-pnv"/>
+                                            <segue destination="VN5-FV-K2E" kind="show" id="oYD-DU-h0F"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -73,6 +74,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1444" y="118.96551724137932"/>
+        </scene>
+        <!--Movie Details View Controller-->
+        <scene sceneID="Kvz-FK-bMy">
+            <objects>
+                <viewController id="VN5-FV-K2E" customClass="MovieDetailsViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7zh-4Z-aDa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="3Tu-Cx-aLP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ywE-Le-E7E"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eca-US-R1i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2244" y="119"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Aoc-ho-g0a">
