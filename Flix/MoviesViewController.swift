@@ -38,7 +38,7 @@ class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewD
         //Adding the poster image
         //According to the API configuration , you need baseURL, fileSize, and filePath
         let baseURL: String = "https://image.tmdb.org/t/p/"
-        //this size is specified on the API, they have different sizes available 
+        //this size is specified on the API, they have different sizes available
         let fileSize: String = "w185"
         let posterImagePath: String = movie["poster_path"] as! String
         
@@ -104,7 +104,9 @@ class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewD
         //Find the selected movie
         // Since the sender is of type Any? you need to cast it to a UI table view cell
         let cell = sender as! UITableViewCell
+        //tableview then gets the actual index for the cell
         let indexPath = tableView.indexPath(for: cell)!
+        //access the array 
         let movie = movies[indexPath.row]
         
         
