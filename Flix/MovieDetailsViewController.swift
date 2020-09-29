@@ -8,11 +8,15 @@
 import UIKit
 
 class MovieDetailsViewController: UIViewController {
-
+    
+    // The movie dictionary with string key
+    var movie: [String:Any]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        print(movie["title"])
     }
     
 
@@ -23,6 +27,7 @@ class MovieDetailsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
         
     }
 

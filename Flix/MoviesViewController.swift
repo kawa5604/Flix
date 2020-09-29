@@ -54,6 +54,7 @@ class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewD
     }
     
 //global variables in this scope are called properties
+    
 //    array of dictionaries for movies
     var movies = [[String:Any]]()
     
@@ -106,8 +107,13 @@ class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewD
         let cell = sender as! UITableViewCell
         //tableview then gets the actual index for the cell
         let indexPath = tableView.indexPath(for: cell)!
-        //access the array 
+        //access the array
         let movie = movies[indexPath.row]
+        
+        //Pass the selected movie to the details view controller
+        let detailsViewController = segue.destination as! MovieDetailsViewController
+        detailsViewController.movie = movie
+        
         
         
     }
