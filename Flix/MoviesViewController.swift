@@ -115,6 +115,10 @@ class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewD
         detailsViewController.movie = movie
         
         
+        //this deselects the row in the table view. When you return to the main movies view controller
+        //the cell is now deselected
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         
     }
 
