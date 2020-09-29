@@ -57,7 +57,11 @@ class MovieDetailsViewController: UIViewController {
         let backDropPathURL = URL(string: baseURL + backDropSize + backDropImagePath)
         backDropView.af_setImage(withURL: backDropPathURL!)
         
-        
+        //tweaking poster frame
+        posterView.layer.borderWidth = 2
+        posterView.layer.masksToBounds = false
+        posterView.layer.borderColor = UIColor.darkGray.cgColor
+        posterView.clipsToBounds = true
         
 
         
