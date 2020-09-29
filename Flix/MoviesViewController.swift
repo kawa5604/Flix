@@ -36,6 +36,7 @@ class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewD
         cell.SynopsisLabel!.text = synopsis
         
         //Adding the poster image
+        // this builds the url and gets the image with alamofireImage
         //According to the API configuration , you need baseURL, fileSize, and filePath
         let baseURL: String = "https://image.tmdb.org/t/p/"
         //this size is specified on the API, they have different sizes available
@@ -71,7 +72,7 @@ class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewD
         tableView.delegate = self
         
 //        print("-------inside of movies view controller-------")
-        
+
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
