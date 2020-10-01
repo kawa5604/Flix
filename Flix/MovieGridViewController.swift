@@ -43,10 +43,10 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
         // Download the comic book movies only from the API
         
         // Searched for movies similar to infinity war on the movieDb
-        let url = URL(string: "https://api.themoviedb.org/3/movie/299536/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=3")!
-        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        let task = session.dataTask(with: request) { (data, response, error) in
+        var url = URL(string: "https://api.themoviedb.org/3/movie/299536/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=3")!
+        var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        var session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        var task = session.dataTask(with: request) { (data, response, error) in
            // This will run when the network request returns
            if let error = error {
               print(error.localizedDescription)
@@ -58,19 +58,40 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
             // this needs to happen to reload the data once the data is downloaded
             self.collectionView.reloadData()
             
-            //testing
-            // this could be a for loop BUT i will do it 2 times just to get more movies manually
-            
-            
-            
             //detele these before pushing
-            print(dataDictionary)
-            print("----------------- testing to see the difference ---------------")
-            print(self.movies)
+//            print(dataDictionary)
+//            print("----------------- testing to see the difference ---------------")
+//            print(self.movies)
            }
         }
         task.resume()
-
+        //testing here
+        
+        // this can absolutely be optimized in a functioon but that comes later
+        // Re-form the URL and request from the API but now a different page since just one was dissapointing
+        // instead of replacing the self.movies dicitonary, just append to it with self.movies.append(contentsOf: <the new data pulled>)
+        url = URL(string: "https://api.themoviedb.org/3/movie/299536/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=2")!
+        request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        task = session.dataTask(with: request) { (data, response, error) in
+           // This will run when the network request returns
+           if let error = error {
+              print(error.localizedDescription)
+           } else if let data = data {
+              let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+            
+            self.movies.append(contentsOf: dataDictionary["results"] as! [[String:Any]])
+            
+            // this needs to happen to reload the data once the data is downloaded
+            self.collectionView.reloadData()
+            
+            //detele these before pushing
+//            print(dataDictionary)
+//            print("----------------- testing to see the difference ---------------")
+//            print(self.movies)
+           }
+        }
+        task.resume()
     }
     
     
