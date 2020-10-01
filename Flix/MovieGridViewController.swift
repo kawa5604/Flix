@@ -6,19 +6,23 @@
 //
 
 import UIKit
+import AlamofireImage
 
-class MovieGridViewController: UIViewController {
+class MovieGridViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    
+    //properties -- outlet
+    @IBOutlet weak var collectionView: UICollectionView!
     
     // movies property
-    
     var movies = [[String:Any]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        collectionView.delegate = self
+        collectionView.dataSource = self
         // Download the comic book movies only from the API
         
         // Searched for movies similar to infinity war on the movieDb
@@ -33,17 +37,54 @@ class MovieGridViewController: UIViewController {
               let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
             
             self.movies = dataDictionary["results"] as! [[String:Any]]
+            
+            
+            
+            // this needs to happen to reload the data once the data is downloaded
+            
+            self.collectionView.reloadData()
+            //testing
+            //detele these before pushing
             print(dataDictionary)
+            print("----------------- testing to see the difference ---------------")
+            print(self.movies)
            }
         }
         task.resume()
 
-              // TODO: Get the array of movies
-              // TODO: Store the movies in a property to use elsewhere
-              // TODO: Reload your table view data
+    }
+    
+    
+    //functions
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return movies.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieGridCell", for: indexPath) as! MovieGridCell
+        
+        //collection view doesnt have a row, it has an item
+        let movie = movies[indexPath.item]
+        //configue the cell -- as in movies view controller with the table view-- this case is a grid view
+        //Adding the poster image
+        // this builds the url and gets the image with alamofireImage
+        //According to the API configuration , you need baseURL, fileSize, and filePath
+        let baseURL: String = "https://image.tmdb.org/t/p/"
+        //this size is specified on the API, they have different sizes available
+        let fileSize: String = "w1280"
+        let posterImagePath: String = movie["poster_path"] as! String
+        
+        
+        //the URL datatype is like a string but it validates the http, semicolons, etc.
+        let posterURL = URL(string: baseURL + fileSize + posterImagePath)
+        // after installing alamofireImage library
+        
+        cell.posterView.af_setImage(withURL: posterURL!)
+        return cell
     }
     
 
+    
     /*
     // MARK: - Navigation
 
