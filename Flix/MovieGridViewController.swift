@@ -23,6 +23,23 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
         // Do any additional setup after loading the view.
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        // layout to configure the grid and cells
+        
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        
+        
+        //pixels betweeen the rows
+        layout.minimumLineSpacing = 10
+        
+        layout.minimumInteritemSpacing = 10
+        
+        //this is how you get the width of the phone
+        let width = (view.frame.size.width - layout.minimumInteritemSpacing * 2) / 3
+        //if I want 2 posters then ---- width /2
+        
+        layout.itemSize = CGSize(width: width, height: width * 3 / 2)
+        
         // Download the comic book movies only from the API
         
         // Searched for movies similar to infinity war on the movieDb
@@ -35,15 +52,18 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
               print(error.localizedDescription)
            } else if let data = data {
               let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-            
+
             self.movies = dataDictionary["results"] as! [[String:Any]]
-            
-            
+    
+            // this could be a for loop BUT i will do it 2 times just to get more movies manually
+
             
             // this needs to happen to reload the data once the data is downloaded
             
             self.collectionView.reloadData()
+            
             //testing
+            
             //detele these before pushing
             print(dataDictionary)
             print("----------------- testing to see the difference ---------------")
