@@ -52,7 +52,7 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
               print(error.localizedDescription)
            } else if let data = data {
               let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-
+            
             self.movies = dataDictionary["results"] as! [[String:Any]]
     
             // this could be a for loop BUT i will do it 2 times just to get more movies manually
