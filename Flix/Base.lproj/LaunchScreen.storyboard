@@ -17,14 +17,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" semanticContentAttribute="spatial" preservesSuperviewLayoutMargins="YES" image="launch_image" id="4B4-CG-1gG">
-                                <rect key="frame" x="118" y="271" width="138" height="139"/>
+                                <rect key="frame" x="118" y="125" width="138" height="139"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="medium">
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 </preferredSymbolConfiguration>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="egF-zM-SIe">
-                                <rect key="frame" x="100" y="460" width="174" height="82"/>
+                                <rect key="frame" x="100" y="272" width="174" height="82"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                 <attributedString key="attributedText">
