@@ -92,6 +92,31 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
            }
         }
         task.resume()
+        // this can absolutely be optimized in a functioon but that comes later
+        // Re-form the URL and request from the API but now a different page since just one was dissapointing
+        // instead of replacing the self.movies dicitonary, just append to it with self.movies.append(contentsOf: <the new data pulled>)
+        url = URL(string: "https://api.themoviedb.org/3/movie/299536/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=1")!
+        request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        task = session.dataTask(with: request) { (data, response, error) in
+           // This will run when the network request returns
+           if let error = error {
+              print(error.localizedDescription)
+           } else if let data = data {
+              let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+            
+            self.movies.append(contentsOf: dataDictionary["results"] as! [[String:Any]])
+            
+            // this needs to happen to reload the data once the data is downloaded
+            self.collectionView.reloadData()
+            
+            //detele these before pushing
+//            print(dataDictionary)
+//            print("----------------- testing to see the difference ---------------")
+//            print(self.movies)
+           }
+        }
+        task.resume()
     }
     
     
@@ -102,6 +127,23 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieGridCell", for: indexPath) as! MovieGridCell
+        
+        
+        cell.layer.cornerRadius = 5
+        cell.layer.masksToBounds = true
+        cell.contentView.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
+        cell.contentView.layer.borderWidth = 0.5
+
+//
+//        let border = CALayer()
+//        let width = CGFloat(2.0)
+//        border.borderColor = UIColor.darkGray.cgColor
+//        border.frame = CGRect(x: 0, y: cell.contentView.frame.size.height - width, width:  cell.contentView.frame.size.width, height: cell.contentView.frame.size.height)
+//
+//        border.borderWidth = width
+//        cell.contentView.layer.addSublayer(border)
+//        cell.contentView.layer.masksToBounds = true
+        cell.contentView.clipsToBounds = true
         
         //collection view doesnt have a row, it has an item
         let movie = movies[indexPath.item]

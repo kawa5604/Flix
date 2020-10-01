@@ -62,6 +62,7 @@ class MovieDetailsViewController: UIViewController {
         posterView.layer.masksToBounds = false
         posterView.layer.borderColor = UIColor.darkGray.cgColor
         posterView.clipsToBounds = true
+        posterView.layer.cornerRadius = 5
         
 
         

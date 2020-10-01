@@ -23,6 +23,8 @@ class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewD
 //      stop using standard cell and change to reusable cell --> while not on screen, they dont waste memory
         // type cast it as MovieCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell
+
+        
         //        get the movie titles
         let movie = movies[indexPath.row]
         //        This is from the API, this is how the column is called
@@ -50,6 +52,10 @@ class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewD
         
         cell.PosterLabel.af_setImage(withURL: posterURL!)
         
+        cell.PosterLabel.layer.cornerRadius = 5
+        cell.PosterLabel.layer.masksToBounds = true
+
+
         return cell
         
     }
