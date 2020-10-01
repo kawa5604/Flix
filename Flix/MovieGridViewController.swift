@@ -54,15 +54,14 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
               let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
             
             self.movies = dataDictionary["results"] as! [[String:Any]]
-    
-            // this could be a for loop BUT i will do it 2 times just to get more movies manually
-
             
             // this needs to happen to reload the data once the data is downloaded
-            
             self.collectionView.reloadData()
             
             //testing
+            // this could be a for loop BUT i will do it 2 times just to get more movies manually
+            
+            
             
             //detele these before pushing
             print(dataDictionary)
