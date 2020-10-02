@@ -52,6 +52,9 @@ class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewD
         
         cell.PosterLabel.af_setImage(withURL: posterURL!)
         
+        
+        //this rounds the corners of the posters
+        //didnt like the shadows
         cell.PosterLabel.layer.cornerRadius = 5
         cell.PosterLabel.layer.masksToBounds = true
 
