@@ -182,6 +182,7 @@
                                         <size key="customSize" width="200" height="253"/>
                                         <connections>
                                             <outlet property="posterView" destination="REJ-bP-YQ9" id="bCn-uo-6aQ"/>
+                                            <segue destination="Lzg-8D-Ihg" kind="show" id="BXC-Jf-G4c"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -236,6 +237,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B8q-qZ-f6m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="501.60000000000002" y="-712.3152709359606"/>
+        </scene>
+        <!--Grid Details View Controller-->
+        <scene sceneID="QEc-FT-bhX">
+            <objects>
+                <viewController id="Lzg-8D-Ihg" customClass="GridDetailsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6AS-N0-3tR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Gbw-6a-Sc5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wtf-sR-ttu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DqB-2h-ZYh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2244" y="-712"/>
         </scene>
     </scenes>
     <resources>
