@@ -31,7 +31,7 @@ class MovieDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print(movie["title"])
+        //print(movie["title"])
         
         
         //Same as with MovieViewController
