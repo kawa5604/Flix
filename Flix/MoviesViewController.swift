@@ -34,8 +34,9 @@ class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewD
         cell.TitleLabel!.text = title
         // Same as with the title, you first declare a string variable that gets the overview column from the api
         //then assign its casted string value to the Synopsis Label we made in the moviecell class file
-        let synopsis = movie["overview"] as! String
-        cell.SynopsisLabel!.text = synopsis
+        let releaseDate = movie["release_date"] as! String
+        let reformattedDate = releaseDate.replacingOccurrences(of: "-", with: "/")
+        cell.SynopsisLabel!.text = "Release date:\n\n " + reformattedDate
         
         //Adding the poster image
         // this builds the url and gets the image with alamofireImage
@@ -94,7 +95,7 @@ class MoviesViewController: UIViewController,UITableViewDataSource, UITableViewD
             
             self.movies = dataDictionary["results"] as! [[String:Any]]
             self.tableView.reloadData()
-//            print(dataDictionary)
+            print(self.movies)
               // TODO: Get the array of movies
               // TODO: Store the movies in a property to use elsewhere
               // TODO: Reload your table view data
